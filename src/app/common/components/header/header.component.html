@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar class="header-bg-color">
+    <ion-buttons slot="start">
+        <ion-back-button>
+            <img src="../../../../assets/images/back-long.svg">
+        </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start" *ngIf="showBack">
+      <ion-back-button defaultHref="" class="back-btn"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">
+      {{heading}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>

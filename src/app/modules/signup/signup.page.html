@@ -1,0 +1,57 @@
+<app-header heading="Sign Up" [showBack]="true"></app-header>
+
+<ion-content>
+    <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div class="text-center">
+                        <p>Wammer Turns Sharing Fun Photos and Videos With Your Friends Into a Game </p>
+                    </div>
+                    <div padding>
+                        <ion-item>
+                            <ion-input  formControlName="first_name" type="text" placeholder="First Name" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="isSubmitted">
+                            <ion-label class="invalid" *ngIf="signupForm.controls.first_name.touched && signupForm.controls.first_name.hasError('required')">Please fill this field</ion-label>
+                        </div>
+                        
+                        <ion-item>
+                            <ion-input  formControlName="last_name" type="text" placeholder="Last Name" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="isSubmitted">
+                            <ion-label class="invalid" *ngIf="signupForm.controls.last_name.touched && signupForm.controls.last_name.hasError('required')">Please fill this field</ion-label>
+                        </div>
+                        
+                        <ion-item>
+                            <ion-input formControlName="email" type="email" placeholder="Email" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="isSubmitted">
+                            <ion-label class="invalid" *ngIf="signupForm.controls.email.touched && signupForm.controls.email.hasError('required')">Please fill this field</ion-label>
+                            <ion-label class="invalid" *ngIf="signupForm.controls.email.touched && signupForm.controls.email.hasError('invalidEmailAddress')">Please fill valid email address id</ion-label>
+                        </div>
+                        
+                        <ion-item>
+                            <ion-input formControlName="password" type="password" placeholder="Password" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="isSubmitted">
+                            <ion-label class="invalid" *ngIf="signupForm.controls.password.touched && signupForm.controls.password.hasError('required')">Please fill this field</ion-label>
+                        </div>
+                        
+                    </div>
+
+                    <div class="text-center">
+                        <p>By continuing you agree to the Wammer <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+                    </div>
+
+                    <div padding>
+                        <ion-button class="back-btn" (click)="back()">Back</ion-button>
+                        <ion-button type="submit" fill="outline" color="purple" [disabled]="signupForm.invalid">Next</ion-button>
+                    </div>
+
+                    
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
